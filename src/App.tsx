@@ -1,11 +1,16 @@
 import { useState } from 'react'
 
+import { Button } from 'antd'
+import 'antd/dist/antd.css'
+import { WifiOutlined } from '@ant-design/icons'
+
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <div className="App">
-      hello
+      <Button type='primary'>hello</Button>
+      <WifiOutlined style={{fontSize:"20px",color:"#000"}} />
     </div>
   )
 }
