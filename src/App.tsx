@@ -1,15 +1,18 @@
 import { useState } from 'react'
-
-import { Button } from 'antd'
-import { WifiOutlined } from '@ant-design/icons'
+import { Outlet, Link,useRoutes } from "react-router-dom"
+import routes from "./router"
 
 function App() {
   const [count, setCount] = useState(0)
-
+  //使用useRoutes hook函数
+  const routerView = useRoutes(routes)
   return (
     <div className="App">
-      <Button type='primary'>hello</Button>
-      <WifiOutlined style={{fontSize:"20px",color:"#000"}} />
+      <Link to="/home">Home</Link>
+      <Link to="/about">About</Link>
+      {/* 占位符组件，类似vue中的<router-view></router-view> */}
+      {/* <Outlet></Outlet> */}
+      {routerView}
     </div>
   )
 }
