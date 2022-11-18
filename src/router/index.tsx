@@ -1,6 +1,9 @@
-import Home from "@/views/Home"
-import About from "@/views/About"
+import React, { lazy } from "react"
 import { Navigate } from "react-router-dom"
+import Home from "@/views/Home"
+// 懒加载
+const About = lazy(() => import("@/views/About"))
+
 const routes = [
     {
         path:"/",
