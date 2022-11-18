@@ -11,9 +11,10 @@
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-redux":"^7.2.8",
-    "react-router-dom":"6.4.3",
-    "redux": "4.2.0"
+    "react-redux": "^7.2.8",
+    "react-router-dom": "6.4.3",
+    "redux": "4.2.0",
+    "reset-css": "^5.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
