@@ -1,7 +1,6 @@
 import { useState } from 'react'
 
 import { Button } from 'antd'
-import 'antd/dist/antd.css'
 import { WifiOutlined } from '@ant-design/icons'
 
 function App() {
