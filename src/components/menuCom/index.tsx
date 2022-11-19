@@ -1,6 +1,5 @@
 import {
     DesktopOutlined,
-    FileOutlined,
     PieChartOutlined,
     TeamOutlined,
     UserOutlined,
@@ -28,7 +27,7 @@ function getItem(
 const items: MenuItem[] = [
     getItem('Option 1', '/page1', <PieChartOutlined />),
     getItem('Option 2', '/page2', <DesktopOutlined />),
-    getItem('User', '', <UserOutlined />,
+    getItem('User', '/user', <UserOutlined />,
      [
         getItem('Tom', '/user/tom'),
         getItem('Bill', '/user/bill'),
@@ -44,11 +43,25 @@ const items: MenuItem[] = [
 ];
 
 const MenuCom: React.FC = () => {
-    const [openKeys, setOpenKeys] = useState(['']);
-    const NavigateTo = useNavigate();
     const currentRoute = useLocation();
+    //初次展开的key
+    let firstOpenKey: string = "";
+    function findKey(obj: { key: string }) {
+        return obj.key === currentRoute.pathname
+    }
+    //循环 配置初次展开项
+    for (let i = 0; i < items.length; i++) {
+        if (items[i] ! ['children'] && items[i] ! ['children'].length && items[i] ! ['children'].find(findKey)) {
+            firstOpenKey = items[i]!.key as string
+            break
+        }
+    }
+    const [openKeys, setOpenKeys] = useState([firstOpenKey]);
+    const NavigateTo = useNavigate();
+    
     //定义跳转方法
     const menuTo = (e: { key: string }) => {
+        console.log(e.key,"###");
         console.log(currentRoute,"@@@");
         //跳转
         NavigateTo(e.key)
