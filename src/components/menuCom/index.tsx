@@ -8,7 +8,7 @@ import {
 import { Menu } from 'antd';
 import type { MenuProps } from 'antd';
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom"
+import { useNavigate,useLocation } from "react-router-dom"
 type MenuItem = Required<MenuProps>['items'][number];
 
 function getItem(
@@ -28,21 +28,28 @@ function getItem(
 const items: MenuItem[] = [
     getItem('Option 1', '/page1', <PieChartOutlined />),
     getItem('Option 2', '/page2', <DesktopOutlined />),
-    getItem('User', 'sub1', <UserOutlined />, [
-        getItem('Tom', '3'),
-        getItem('Bill', '4'),
-        getItem('Alex', '5'),
-    ]),
-    getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-    getItem('Files', '9', <FileOutlined />),
+    getItem('User', '', <UserOutlined />,
+     [
+        getItem('Tom', '/user/tom'),
+        getItem('Bill', '/user/bill'),
+        getItem('Alex', '/user/alex'),
+    ]
+    ),
+    getItem('Team', '/team', <TeamOutlined />,
+    [
+        getItem('Team 1', '/team/one'), 
+        getItem('Team 2', '/team/two')
+    ]
+    ),
 ];
 
 const MenuCom: React.FC = () => {
     const [openKeys, setOpenKeys] = useState(['']);
     const NavigateTo = useNavigate();
+    const currentRoute = useLocation();
     //定义跳转方法
     const menuTo = (e: { key: string }) => {
-        console.log(e);
+        console.log(currentRoute,"@@@");
         //跳转
         NavigateTo(e.key)
     }
@@ -56,7 +63,7 @@ const MenuCom: React.FC = () => {
     return (
         <Menu
             theme="dark"
-            defaultSelectedKeys={['/page1']}
+            defaultSelectedKeys={[currentRoute.pathname]}
             mode="inline"
             items={items}
             onClick={menuTo}

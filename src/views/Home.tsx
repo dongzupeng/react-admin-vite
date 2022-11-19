@@ -1,5 +1,5 @@
 import { Breadcrumb, Layout } from 'antd';
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useNavigate, Outlet } from "react-router-dom"
 import MenuCom from "@/components/menuCom"
 
@@ -15,7 +15,7 @@ const View: React.FC = () => {
             <Sider collapsible collapsed={collapsed} onCollapse={value => setCollapsed(value)}>
                 <div className="logo" />
                 {/* 菜单栏 */}
-                <MenuCom></MenuCom>
+                <MenuCom></MenuCom> 
             </Sider>
             <Layout className="site-layout">
                 {/* 头部 */}
@@ -29,7 +29,10 @@ const View: React.FC = () => {
                     </Breadcrumb>
                     {/* 页面内容 */}
                     <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-                        <Outlet></Outlet>
+                        {/* 菜单栏 */}
+                        <Suspense fallback={<h2>Loading..</h2>}>
+                            <Outlet></Outlet>
+                        </Suspense>
                     </div>
                 </Content>
                 {/* 底部 */}
