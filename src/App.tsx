@@ -8,8 +8,8 @@ function App() {
   return (
     <Suspense fallback={<h2>Loading..</h2>}>
       <div className="App">
-        <Link to="/home">Home</Link>
-        <Link to="/about">About</Link>
+        {/* <Link to="/home">Home</Link>
+        <Link to="/about">About</Link> */}
         {/* 占位符组件，类似vue中的<router-view></router-view> */}
         {/* <Outlet></Outlet> */}
         {routerView}
