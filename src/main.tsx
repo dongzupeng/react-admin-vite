@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client'
 import 'reset-css'
 //引入全局样式
 import '@/assets/styles/global.scss'
+import 'antd/dist/antd.css'; // or 'antd/dist/antd.less'
 import App from './App'
 import { BrowserRouter } from "react-router-dom"
 
