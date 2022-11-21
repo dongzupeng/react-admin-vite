@@ -5,7 +5,10 @@
     background-color: #21d4fd;
     background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
     .systemName{
-        margin-top: 200px;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%);
         text-align: center;
         font-size: 30px;
         color: #FFF;
@@ -18,6 +21,16 @@
         transform: translate(-50%,-50%);
         padding: 10px 20px;
         border-radius: 5px;
+        .captchaBox{
+            display: flex;
+            .captchaImg{
+                margin-left: 10px;
+                width: 100px;
+                height: 40px;
+                background-color: #21d4fd;
+                cursor: pointer;
+            }
+        }
     }
     
 }

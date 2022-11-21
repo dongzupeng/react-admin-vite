@@ -13,6 +13,12 @@ const Login = () => {
                 <Space direction="vertical" style={{display:"flex"}}>
                     <Input size="large" placeholder="请输入用户名" prefix={<UserOutlined />} />
                     <Input.Password size="large" placeholder="请输入密码" prefix={<LockOutlined />} />
+                    <div className={styles.captchaBox}>
+                        <Input placeholder='验证码'/>
+                        <div className={styles.captchaImg}>
+                            <img src="" alt="" />
+                        </div>
+                    </div>
                     <Button type="primary" size="large" block>
                         登录
                     </Button>

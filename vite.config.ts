@@ -13,7 +13,7 @@ export default defineConfig({
     //   ]
     // })
   ],
-
+  
   //配置别名
   resolve: {
       alias: {
